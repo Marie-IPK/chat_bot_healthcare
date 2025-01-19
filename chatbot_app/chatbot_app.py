@@ -1,5 +1,5 @@
 import streamlit as st
-import chat_2  # Assuming your chatbot code is in chatbot_2.py
+import chat_2  # Assuming your chatbot code is in chat_2.py it's the true name of our app
 
 st.title("Healthcare Chatbot")
 
