@@ -38,8 +38,6 @@ pip install -r requirements.txt
 ## Project structure 
 
 ```bash
-## Project Structure 
-
 CHAT_BOT_HEALTHCARE
 ├── .github/
 │   └── workflows/
@@ -65,6 +63,7 @@ CHAT_BOT_HEALTHCARE
 │   └── pyvenv.cfg
 ├── .gitignore
 └── README.md                   # Project documentation                 
+
 ```
 ## Usage 
 ### training the model 
