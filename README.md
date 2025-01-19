@@ -55,12 +55,12 @@ pip install -r requirements.txt
 ### training the model 
 To train the chatbot model, ensure your intents.json is configured with your data, and run:
 ```bash
-python -u model_chat2.py
+python3 -u model_chat2.py
 ```
 ### Running the chatbot
 Start the chatbot using:
 ```bash 
-python -u chat_2.py
+python3 -u chat_2.py
 ```
 ### Adding intents
 To add new intents:
