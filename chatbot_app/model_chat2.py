@@ -6,6 +6,8 @@ import keras
 import nltk
 from nltk.stem import WordNetLemmatizer
 import matplotlib.pyplot as plt
+from keras.callbacks import EarlyStopping  # Import EarlyStopping
+
 # Télécharger les ressources nécessaires
 nltk.download('punkt')
 nltk.download('wordnet')
@@ -18,7 +20,7 @@ intents = json.loads(open('intents.json').read())
 words = []
 classes = []
 documents = []
-ignoreLetters = ['?', '!', '.',',']
+ignoreLetters = ['?', '!', '.', ',']
 
 # Préparer les données
 for intent in intents['intents']:
@@ -74,7 +76,7 @@ test_Y = test_data[:, len(words):]
 model = keras.Sequential()
 
 model.add(keras.layers.Dense(128, input_shape=(len(train_X[0]),), activation='relu'))
-model.add(keras.layers.Dropout(0.5))
+model.add(keras.layers.Dropout(0.3))
 model.add(keras.layers.Dense(64, activation='relu'))
 model.add(keras.layers.Dense(len(train_Y[0]), activation='softmax'))
 
@@ -82,16 +84,21 @@ model.add(keras.layers.Dense(len(train_Y[0]), activation='softmax'))
 sgd = keras.optimizers.SGD(learning_rate=0.01, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
+# Define early stopping
+early_stopping = EarlyStopping(monitor='val_loss', patience=500, restore_best_weights=True)
+
 # Entraînement du modèle
 history = model.fit(
     np.array(train_X), np.array(train_Y),
-    epochs=500, batch_size=5, verbose=1,
-    validation_data=(test_X, test_Y)  
+    epochs=500, batch_size=100, verbose=1,
+    validation_data=(test_X, test_Y),
+    callbacks=[early_stopping]  # Add early stopping here
 )
 # Sauvegarder le modèle
 model.save('chatbot_maryIPK.keras')
 
 print("Model training completed and saved!")
+
 # Plot learning curves
 plt.plot(history.history['accuracy'], label='Training Accuracy')
 plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
@@ -99,6 +106,7 @@ plt.title('Model Accuracy')
 plt.xlabel('Epoch')
 plt.ylabel('Accuracy')
 plt.legend()
+plt.savefig('model_accuracy.png')  # Save the accuracy plot
 plt.show()
 
 plt.plot(history.history['loss'], label='Training Loss')
@@ -107,4 +115,5 @@ plt.title('Model Loss')
 plt.xlabel('Epoch')
 plt.ylabel('Loss')
 plt.legend()
+plt.savefig('model_loss.png')  # Save the loss plot
 plt.show()
