@@ -38,18 +38,33 @@ pip install -r requirements.txt
 ## Project structure 
 
 ```bash
-├── chat_bot_healthcare/          # Python virtual environment
-  ├── chatbot_app/                # Contains intents and training data
-│   ├── intents.json      `       # JSON file with intents and responses
-│   ├── chat_2.py                 # chatbot itsel
-│   ├── model_chat2.py            # Script to train the chatbot model
-│   ├── chatbot_maryIPK.keras     # Saved model file
-│   ├── requirements.txt          # Project dependencies
-  ├── chatbot_env/                # Trained models
-  ├── README.md                   # Project documentation
-  ├── .git/                       # git commands config
-  ├── .github/                    # folder to make workflow
-  ├── .gitignore                  # Script for prediction and interaction
+## Project Structure 
+
+CHAT_BOT_HEALTHCARE
+├── .github/
+│   └── workflows/
+│       └── python-app.yml
+├── chatbot_app/
+│   ├── __pycache__/
+│   ├── nltk_data/
+│   │   └── tokenizers/
+│   │       └── punkt/
+│   ├── chat_2.py
+│   ├── chatbot_app.py
+│   ├── chatbot_marylPK.keras
+│   ├── classes.pkl
+│   ├── intents.json
+│   └── LICENSE
+├── model_chat2.py
+├── requirements.txt
+├── words.pkl
+├── chatbot_env/
+│   ├── bin/
+│   ├── lib/
+│   ├── share/
+│   └── pyvenv.cfg
+├── .gitignore
+└── README.md                   # Project documentation                 
 ```
 ## Usage 
 ### training the model 
