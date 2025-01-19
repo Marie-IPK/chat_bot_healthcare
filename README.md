@@ -3,7 +3,16 @@
 # Chatbot Project
 
 This repository contains the implementation of a chatbot using Python and deep learning techniques. The chatbot is designed to interact with users and provide relevant responses based on trained intents.
-
+## Virtual environmenet 
+- **Install virtual environmenet :**
+  On Linux
+  `pip install virtualenv`
+- **Create virtual environment :**
+  On Linux
+  `virtualenv "name_virtual_env"`
+- **Activate virtual environment :**
+  On Linux
+  `source name_virtual_env/bin/activate`
 ## Features
 
 - **Natural Language Processing (NLP):** Processes user input using lemmatization and tokenization.
@@ -15,7 +24,7 @@ This repository contains the implementation of a chatbot using Python and deep l
 
 Before running the chatbot, ensure the following are installed:
 
-- Python 3.7+
+- Python 3
 - `nltk`
 - `numpy`
 - `keras`
@@ -29,28 +38,29 @@ pip install -r requirements.txt
 ## Project structure 
 
 ```bash
-├── chatbot_env/          # Python virtual environment
-├── data/                 # Contains intents and training data
-│   ├── intents.json      # JSON file with intents and responses
-├── models/               # Trained models
-│   ├── chatbot_model.h5  # Saved model file
-├── scripts/              # Supporting scripts
-│   ├── train.py          # Script to train the chatbot model
-│   ├── predict.py        # Script for prediction and interaction
-├── chat_1.py             # Main chatbot script
-├── requirements.txt      # Project dependencies
-├── README.md             # Project documentation
+├── chat_bot_healthcare/          # Python virtual environment
+  ├── chatbot_app/                # Contains intents and training data
+│   ├── intents.json      `       # JSON file with intents and responses
+│   ├── chat_2.py                 # chatbot itsel
+│   ├── model_chat2.py            # Script to train the chatbot model
+│   ├── chatbot_maryIPK.keras     # Saved model file
+│   ├── requirements.txt          # Project dependencies
+  ├── chatbot_env/                # Trained models
+  ├── README.md                   # Project documentation
+  ├── .git/                       # git commands config
+  ├── .github/                    # folder to make workflow
+  ├── .gitignore                  # Script for prediction and interaction
 ```
 ## Usage 
 ### training the model 
 To train the chatbot model, ensure your intents.json is configured with your data, and run:
 ```bash
-python scripts/train.py
+python -u model_chat2.py
 ```
 ### Running the chatbot
 Start the chatbot using:
 ```bash 
-python chat_1.py
+python -u chat_2.py
 ```
 ### Adding intents
 To add new intents:
