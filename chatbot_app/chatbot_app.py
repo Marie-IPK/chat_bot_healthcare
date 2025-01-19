@@ -1,5 +1,5 @@
 import streamlit as st
-import chatbot_2  # Assuming your chatbot code is in chatbot_2.py
+import chat_2  # Assuming your chatbot code is in chatbot_2.py
 
 st.title("Healthcare Chatbot")
 
