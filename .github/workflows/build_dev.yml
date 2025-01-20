@@ -17,6 +17,6 @@ jobs:
         cd chatbot_app/
         docker build -t my-app:pr .
     
-    - name: Run Container
-      run: |
-        docker run -p 8080:8080 my-app:pr
+    # - name: Run Container
+    #   run: |
+    #     docker run -d -p 8080:8080 my-app:pr

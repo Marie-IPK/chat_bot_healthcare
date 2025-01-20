@@ -3,3 +3,4 @@ chatbot_app/classes.pkl
 chatbot_app/words.pkl
 chatbot_app/chat_env/
 chatbot_app/__pycache__
+.pytest_cache
