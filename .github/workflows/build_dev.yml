@@ -1,0 +1,22 @@
+name: Build Project
+
+on: workflow_call
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Ici on peut dire que ca permet de recuperer tout les fichiers du 
+    # repertoire courant github
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Build Docker Image
+      run: |
+        cd chatbot_app/
+        docker build -t my-app:pr .
+    
+    - name: Run Container
+      run: |
+        docker run -p 8080:8080 my-app:pr

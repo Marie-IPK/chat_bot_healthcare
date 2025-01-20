@@ -9,8 +9,8 @@ import matplotlib.pyplot as plt
 from keras.callbacks import EarlyStopping  # Import EarlyStopping
 
 # Télécharger les ressources nécessaires
-nltk.download('punkt')
-nltk.download('wordnet')
+# nltk.download('punkt')
+# nltk.download('wordnet')
 
 lemmatizer = WordNetLemmatizer()
 

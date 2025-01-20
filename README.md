@@ -38,31 +38,39 @@ pip install -r requirements.txt
 ## Project structure 
 
 ```bash
-CHAT_BOT_HEALTHCARE
+CCHAT_BOT_HEALTHCARE
 ├── .github/
-│   └── workflows/
-│       └── python-app.yml
+│ └── workflows/
+│ └── python-app.yml
 ├── chatbot_app/
-│   ├── __pycache__/
-│   ├── nltk_data/
-│   │   └── tokenizers/
-│   │       └── punkt/
-│   ├── chat_2.py
-│   ├── chatbot_app.py
-│   ├── chatbot_marylPK.keras
-│   ├── classes.pkl
-│   ├── intents.json
-│   └── LICENSE
-├── model_chat2.py
-├── requirements.txt
-├── words.pkl
+│ ├── pycache/
+│ │ └── chat_2.cpython-312.pyc
+│ ├── nltk_data/
+│ │ └── tokenizers/
+│ │ └── punkt/
+│ ├── static/
+│ │ └── logo.png
+│ ├── templates/
+│ │ └── index.html
+│ ├── chat_2.py
+│ ├── chatbot_flask.py
+│ ├── chatbot_marylPK.keras
+│ ├── classes.pkl
+│ ├── Dockerfile
+│ ├── intents.json
+│ ├── model_accuracy.png
+│ ├── model_chat2.py
+│ ├── model_loss.png
+│ ├── requirements.txt
+│ ├── words.pkl
+│ └── LICENSE
 ├── chatbot_env/
-│   ├── bin/
-│   ├── lib/
-│   ├── share/
-│   └── pyvenv.cfg
+│ ├── bin/
+│ ├── lib/
+│ ├── share/
+│ └── pyvenv.cfg
 ├── .gitignore
-└── README.md                   # Project documentation                 
+└── README.md                 # Project documentation                 
 
 ```
 ## Usage 
