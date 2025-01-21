@@ -16,6 +16,7 @@ jobs:
       run: |
         cd chatbot_app/
         pip install -r requirements.txt
+        python model_chat2.py
         pytest 
     
     # - name: Run Container
