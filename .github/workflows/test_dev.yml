@@ -22,6 +22,7 @@ jobs:
     
     - name: test app
       run: |
+        cd chatbot_app/
         python model_chat2.py
         pytest 
     
