@@ -3,7 +3,7 @@ import pytest
 from chatbot_flask import app
 
 
-@pytest.fixturecd 
+@pytest.fixture
 def client():
     app.testing = True
     with app.test_client() as client:
