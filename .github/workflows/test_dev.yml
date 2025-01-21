@@ -1,0 +1,31 @@
+name: Test project
+
+on: workflow_call
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Ici on peut dire que ca permet de recuperer tout les fichiers du 
+    # repertoire courant github
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Install requirements
+      run: |
+        cd chatbot_app/
+        pip install -r requirements.txt
+        python -m nltk.downloader punkt
+        python -m nltk.downloader wordnet
+        python -m nltk.downloader punkt_tab
+    
+    - name: test app
+      run: |
+        cd chatbot_app/
+        python model_chat2.py
+        pytest 
+    
+    # - name: Run Container
+    #   run: |
+    #     docker run -d -p 8080:8080 my-app:pr
