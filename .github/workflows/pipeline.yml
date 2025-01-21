@@ -9,3 +9,8 @@ jobs:
   build-dev:
     name: Build Project
     uses: ./.github/workflows/build_dev.yml
+
+  test-dev:
+    name: Test project
+    uses: ./.github/workflows/test_dev.yml
+    needs: build-dev
