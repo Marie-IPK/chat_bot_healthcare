@@ -14,3 +14,9 @@ jobs:
     name: Test project
     uses: ./.github/workflows/test_dev.yml
     needs: build-dev
+  
+  deploy-dev:
+    name: Deploy Project
+    uses: ./.github/workflows/deploy_dev.yml
+    needs: test-dev
+    
