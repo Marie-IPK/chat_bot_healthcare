@@ -6,32 +6,11 @@ on:
       - main
 
 jobs:
-  # build-dev:
-  #   name: Build Project
-  #   uses: ./.github/workflows/build_dev.yml
+  build-dev:
+    name: Build Project
+    uses: ./.github/workflows/build_dev.yml
 
-  # test-dev:
-  #   name: Test project
-  #   uses: ./.github/workflows/test_dev.yml
-  #   needs: build-dev
-
-  # deploy-dev:
-  #   name: Deploy Project
-  #   uses: ./.github/workflows/deploy_dev.yml
-    # needs: test-dev
-  
-  deploy-dev:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Deploy on EC2 using SSH
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.EC2_HOST }}
-          username: "ubuntu"
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            cd /home/ubuntu/chat_bot_healthcare/
-            git pull origin main
-            cd chatbot_app/
-            docker compose -f compose.yml up --build -d
+  test-dev:
+    name: Test project
+    uses: ./.github/workflows/test_dev.yml
+    needs: build-dev
