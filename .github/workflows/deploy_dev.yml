@@ -19,4 +19,5 @@ jobs:
           script: |
             cd /home/ubuntu/chat_bot_healthcare/
             git pull origin main
+            cd chatbot_app/
             docker compose -f compose.yml up --build -d
