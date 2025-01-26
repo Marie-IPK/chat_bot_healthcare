@@ -1,0 +1,27 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: "gunicorn -w 3 --bind 0.0.0.0:8080 chatbot_flask:app"
+    volumes:
+      - .:/app
+      - static_volume: /app/static
+    ports:
+      - "8080:8080"
+  
+  nginx:
+    build:
+      context: .
+      dockerfile: ./deploy/nginx/Dockerfile
+    restart: always
+    volumes:
+      - .:/app
+      - static_volume: /app/static
+    ports:
+      - "8001:80"
+    depends_on:
+      - app
+
+volumes:
+  static_volume:
