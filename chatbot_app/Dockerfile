@@ -17,4 +17,4 @@ COPY . /app
 RUN python3 model_chat2.py
 
 EXPOSE 8080
-CMD ["python3", "chatbot_flask.py"]
+# CMD ["python3", "chatbot_flask.py"]
