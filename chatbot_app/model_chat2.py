@@ -76,7 +76,7 @@ test_Y = test_data[:, len(words):]
 model = keras.Sequential()
 
 model.add(keras.layers.Dense(128, input_shape=(len(train_X[0]),), activation='relu'))
-model.add(keras.layers.Dropout(0.3))
+model.add(keras.layers.Dropout(0.5))
 model.add(keras.layers.Dense(64, activation='relu'))
 model.add(keras.layers.Dense(len(train_Y[0]), activation='softmax'))
 
